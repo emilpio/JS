@@ -71,8 +71,6 @@ function buttonClicked(argButtonName) {
     }
 
     const playerMove = argButtonName;
-    let playerInput;
-    console.log("wybór ruchu gracza to: " + playerInput);
     console.log("ruch gracza to: " + playerMove);
     const randomNumber = Math.floor(Math.random() * 3 + 1);
     console.log("wylosowana liczba to: " + randomNumber);
