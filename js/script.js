@@ -2,8 +2,6 @@ let computerPoint = 0;
 
 let userPoint = 0;
 
-let argButtonName;
-
 const buttonRock = document.getElementById("button-rock");
 buttonRock.addEventListener("click", function () {
     buttonClicked("kamień");
@@ -26,7 +24,6 @@ function buttonClicked(argButtonName) {
     clearMessages();
     console.log(argButtonName + " został kliknięty");
 
-    let argMoveId;
     function getMoveName(argMoveId) {
         console.log("wywołano funkcję getMoveName z argumentem: " + argMoveId);
         if (argMoveId == 1) {
@@ -48,9 +45,6 @@ function buttonClicked(argButtonName) {
     /**
      * Describe this function...
      */
-    let argPlayerMove;
-    let argComputerMove;
-
     function displayResult(argPlayerMove, argComputerMove) {
         console.log(
             "wywołano funkcję displayResults z argumentami: " +
@@ -58,13 +52,11 @@ function buttonClicked(argButtonName) {
                 ", " +
                 argComputerMove
         );
-        if (argPlayerMove == "papier" && argComputerMove == "kamień") {
-            printMessage("Wygrywasz!");
-            userPoint++;
-        } else if (argPlayerMove == "kamień" && argComputerMove == "nożyce") {
-            printMessage("Wygrywasz!");
-            userPoint++;
-        } else if (argPlayerMove == "nożyce" && argComputerMove == "papier") {
+        if (
+            (argPlayerMove == "papier" && argComputerMove == "kamień") ||
+            (argPlayerMove == "kamień" && argComputerMove == "nożyce") ||
+            (argPlayerMove == "nożyce" && argComputerMove == "papier")
+        ) {
             printMessage("Wygrywasz!");
             userPoint++;
         } else if (argPlayerMove == argComputerMove) {
@@ -75,11 +67,11 @@ function buttonClicked(argButtonName) {
             computerPoint++;
         }
         printMessage("Zagrałem " + argComputerMove + ", a Ty " + argPlayerMove);
-        printMessage("Punkt dla komputer" + computerPoint);
-        printMessage("Punkt dla użytkownika" + userPoint);
+        printMessage("Punkt dla komputer " + computerPoint);
+        printMessage("Punkt dla użytkownika " + userPoint);
     }
 
-    const playerMove = argButtonName;
+    playerMove = argButtonName;
     console.log("ruch gracza to: " + playerMove);
     const randomNumber = Math.floor(Math.random() * 3 + 1);
     console.log("wylosowana liczba to: " + randomNumber);
