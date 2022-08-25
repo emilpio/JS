@@ -1,3 +1,7 @@
+let computerPoint = 0;
+
+let userPoint = 0;
+
 let argButtonName;
 
 const buttonRock = document.getElementById("button-rock");
@@ -22,9 +26,6 @@ function buttonClicked(argButtonName) {
     clearMessages();
     console.log(argButtonName + " został kliknięty");
 
-    /**
-     * Describe this function...
-     */
     let argMoveId;
     function getMoveName(argMoveId) {
         console.log("wywołano funkcję getMoveName z argumentem: " + argMoveId);
@@ -49,6 +50,7 @@ function buttonClicked(argButtonName) {
      */
     let argPlayerMove;
     let argComputerMove;
+
     function displayResult(argPlayerMove, argComputerMove) {
         console.log(
             "wywołano funkcję displayResults z argumentami: " +
@@ -58,16 +60,23 @@ function buttonClicked(argButtonName) {
         );
         if (argPlayerMove == "papier" && argComputerMove == "kamień") {
             printMessage("Wygrywasz!");
+            userPoint++;
         } else if (argPlayerMove == "kamień" && argComputerMove == "nożyce") {
             printMessage("Wygrywasz!");
+            userPoint++;
         } else if (argPlayerMove == "nożyce" && argComputerMove == "papier") {
             printMessage("Wygrywasz!");
+            userPoint++;
         } else if (argPlayerMove == argComputerMove) {
             printMessage("Remis!");
+            userPoint++;
         } else {
             printMessage("Przegrywasz :(");
+            computerPoint++;
         }
         printMessage("Zagrałem " + argComputerMove + ", a Ty " + argPlayerMove);
+        printMessage("Punkt dla komputer" + computerPoint);
+        printMessage("Punkt dla użytkownika" + userPoint);
     }
 
     const playerMove = argButtonName;
